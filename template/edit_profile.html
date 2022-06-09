@@ -1,0 +1,86 @@
+{% extends "userbase.html" %}
+{% block base %}
+<div class="container-fluid px-0 py-0">
+    <div class="row">
+        <div class="col-md-12 py-5 bg-success px-2 mx-2 text-center ">
+            <h1>Dashboard &gt; Edit Profile </h1>
+        </div>
+        <div class="col-md-6 mx-auto p-3 bg-light my-2">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if status %}
+                <div class="alert alert-primary">{{status}}</div>
+                {% endif %}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="fname" placeholder="Enter First Name"
+                                value="{{user.first_name}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="lname" placeholder="Enter Last Name"
+                                value="{{user.last_name}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter Name"
+                                value="{{user.email}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Contact Number</label>
+                            <input type="text" value="{{data1.contact_number}}" class="form-control" name="contact"
+                                placeholder="Enter Contact Number" pattern="[0-9]{10}"
+                                title="Number must contain 10 digits only!!">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Age (in years)</label>
+                            <input type="number" class="form-control" value="{{data1.age}}" name="age"
+                                placeholder="Enter Age" min="15" max="99">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <!--<div class="col-md-6">
+            <label>City</label>
+            <input type="text" class="form-control" name="city" placeholder="Enter City" value="{{data.city}}">
+        </div>-->
+                        <!--<div class="col-md-6">
+            <label>Gender</label>
+  
+            <select name="gender"  class="form-control">
+                <option value="Male">Male</option>
+
+                {% if data.gender == "Female" %}
+                <option value="Female" selected>Female</option>
+                {% else %}
+                <option value="Female">Female</option>
+                {% endif %}
+
+                {% if data.gender == "Others" %}
+                <option value="Others" selected>Others</option>
+                {% else %}
+                <option value="Others">Others</option>
+                {% endif %}
+            </select>
+        </div>-->
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" name="changeprofile" value="Save Changes" class="btn btn-primary"
+                        style="width:50%;border-radius:20px;">
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,59 @@
+{%extends "base.html"%}
+{%block head%}
+<title>contact</title>
+{%endblock%}
+
+{%block myblock%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 bg-primary text-center py-5 ">
+            <h1>This is contact page</h1>
+        </div>
+        <br>
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6 ">
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Your Name:</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label>Your Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                    <label>Your Mobile No.(ID):</label>
+                    <input type="number" class="form-control" name="ID" placeholder="Registerd Number">
+                </div>
+                <div class="form-group">
+                    <label>Subject:</label>
+                    <input type="text" class="form-control" name="sub" placeholder="Enter Subject">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Complaint</label>
+                    <textarea class="form-control" name="msg" rows="3"></textarea>
+                </div>
+
+                <div class="form-group"><input type="submit" class="btn-btn-success" value="Submit"></div>
+            </form>
+            <br>
+        </div>
+    </div>
+    <!-- <div class="row">            #This prints the data or to be specific name of all the complaints
+              <div class="col-md-12">    #under view have to pass the {"message":data}
+                <h2> Previous Feedbacks</h2>
+                {% for i in messages  %}
+                  {{i.name}}
+                {%  endfor %}  
+              </div>
+        </div>-->
+</div>
+{% if status %}
+<script>
+    alert("{{status}}");
+</script>
+{% endif %}
+
+{%endblock%}

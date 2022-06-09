@@ -1,0 +1,56 @@
+{% extends "userbase.html" %}
+{% block base %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 bg-light my-2 px-1">
+            <h1> Change Your Password</h1>
+            <hr>
+            {% if msz %}
+            <div class="alert {{col}}">{{msz}}</div>
+            {%endif%}
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" class="form-control" name="cpwd">
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" class="form-control" name="npwd" id="npw" onkeyup="check_pass()">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" name="pwd" id="pw" onkeyup="check_pass()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-warning" id="sbbtn" value="Change Password">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        function check_pass() {
+            let p = $("#pw").val();
+            let cp = $("#npw").val();
+            if (p == cp) {
+                $("#pw").removeClass("alert alert-danger").addClass("alert alert-success");
+                $("#npw").addClass("alert alert-success");
+                $("#sbbtn").removeAttr("disabled");
+
+            }
+            else {
+                $("#sbbtn").attr("disabled", "disabled");
+                $("#pw").removeClass("alert alert-success").addClass("alert alert-danger");
+                $("#npw").removeClass("alert alert-success").addClass("alert alert-danger");
+            }
+        }
+    </script>
+</div>
+{%endblock%}

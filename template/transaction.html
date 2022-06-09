@@ -1,0 +1,59 @@
+{% extends "userbase.html" %}
+{% block base %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 bg-light my-2 px-1 ">
+            <h3>Transfer Fund</h3>
+            <hr>
+            {% if transaction %}
+            <div class="alert alert-success">{{transaction}}</div>
+            {%endif%}
+            {% if dont %}
+            <div class="alert alert-danger">{{dont}}</div>
+            {%endif%}
+            {% if Incorrect %}
+            <div class="alert alert-danger">{{Incorrect}}</div>
+            {%endif%}
+            {% if incorrect %}
+            <div class="alert alert-danger">{{incorrect}}</div>
+            {%endif%}
+            {% if F %}
+            <div class="alert alert-danger">{{F}}</div>
+            {%endif%}
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Recipients username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter the username" id="user">
+                </div>
+                <div class="form-group">
+                    <label>Recipients ID</label>
+                    <input type="text" class="form-control" name="rid" placeholder="ID" id="r">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" class="form-control" name="amt" id="amt" placeholder="$">
+                </div>
+                <div class="form-group">
+                    <label>PIN/Password</label>
+                    <input type="password" class="form-control" name="pwd" id="pw">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-warning" id="sbbtn" value="Transfer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function check_all() {
+        let r = $("#r").val();
+        let amt = $("#amt").val();
+        let pwd = $("#pwd").val();
+    }
+
+
+</script>
+</div>
+{%endblock%}
